@@ -15,7 +15,7 @@ from django.http import HttpResponse, JsonResponse
 from imutils import contours
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt 
+#from matplotlib import pyplot as plt 
 from keras.models import model_from_json
 
 # Create your views here.
@@ -74,7 +74,7 @@ def imageConvert(image):
         ss.append(q)    
         if (q.shape>(60,60)):
             #s.append(q)
-            plt.imshow(q)
+            #plt.imshow(q)
             r=cv2.resize(q,(54,54))
             s.append(r)
            # s.reverse()
