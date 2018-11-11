@@ -18,8 +18,6 @@ chest==0.2.3
 click==6.6
 cloudpickle==0.2.1
 cmake==0.8.0
-colorama==0.3.7
-comtypes==1.1.2
 conda-build==2.0.2
 configobj==5.0.6
 contextlib2==0.5.3
