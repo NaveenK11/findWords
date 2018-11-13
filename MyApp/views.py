@@ -40,10 +40,10 @@ def max_val(f):
 
 @api_view(["POST"])
 def imageConvert(image):
-    shape = ast.literal_eval(image.POST.get('shape'))
-    buffer = base64.b64decode(image.POST.get('image'))
+    #shape = ast.literal_eval(image.POST.get('shape'))
+    ##buffer = base64.b64decode(image.POST.get('image'))
     # Reconstruct the image
-    image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
+    #image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
     im = cv2.imread(image,0)
     im=cv2.resize(im,(1080,1080))
     b = cv2.GaussianBlur(im,(5,5),0)
