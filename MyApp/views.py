@@ -45,6 +45,7 @@ def imageConvert(image):
     # Reconstruct the image
     #image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
    # im = cv2.imread(image,0)
+   image=np.asarray(image)
     im=cv2.resize(image,(1080,1080))
     b = cv2.GaussianBlur(im,(5,5),0)
     #ret,thresh = cv2.threshold(b,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
