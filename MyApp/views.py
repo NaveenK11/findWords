@@ -17,6 +17,7 @@ import cv2
 import numpy as np
 #from matplotlib import pyplot as plt 
 from keras.models import model_from_json
+import base64
 
 # Create your views here.
 
@@ -39,13 +40,15 @@ def max_val(f):
     return(flattened)
 
 @api_view(["POST"])
-def imageConvert(image):
+def imageConvert(imageStr):
     #shape = ast.literal_eval(image.POST.get('shape'))
     ##buffer = base64.b64decode(image.POST.get('image'))
     # Reconstruct the image
     #image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
-   # im = cv2.imread(image,0)
-    image=np.asarray(image)
+	with open("image.jpg", "wb") as fh:
+		fh.write(base64.decodebytes(imageStr))
+    im = cv2.imread("image.jpg",0)
+    #image=np.asarray(image)
     image=cv2.resize(image,(1080,1080))
     b = cv2.GaussianBlur(image,(5,5),0)
     #ret,thresh = cv2.threshold(b,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
