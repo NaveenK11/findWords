@@ -47,7 +47,7 @@ def imageConvert(imageStr):
     #image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
 	with open("image.jpg", "wb") as fh:
 		fh.write(base64.decodebytes(imageStr))
-    im = cv2.imread("image.jpg",0)
+    image = cv2.imread("image.jpg",0)
     #image=np.asarray(image)
     image=cv2.resize(image,(1080,1080))
     b = cv2.GaussianBlur(image,(5,5),0)
