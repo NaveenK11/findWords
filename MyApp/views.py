@@ -18,6 +18,7 @@ import numpy as np
 #from matplotlib import pyplot as plt 
 from keras.models import model_from_json
 import base64
+from PIL import Image
 
 # Create your views here.
 
@@ -45,10 +46,13 @@ def imageConvert(imageStr):
     ##buffer = base64.b64decode(image.POST.get('image'))
     # Reconstruct the image
     #image = np.frombuffer(buffer, dtype=np.uint8).reshape(shape)
-	with open("image.jpg", "wb") as fh:
-		fh.write(base64.decodebytes(imageStr))
-    image = cv2.imread("image.jpg",0)
+	# with open("image.jpg", "wb") as fh:
+		# fh.write(base64.decodebytes(imageStr))
+    # image = cv2.imread("image.jpg",0)
     #image=np.asarray(image)
+	imgdata = base64.decodebytes(imageStr)
+    image = Image.open(io.BytesIO(imgdata))
+    image=cv2.cvtColor(np.array(image), cv2.COLOR_BGR2RGB)
     image=cv2.resize(image,(1080,1080))
     b = cv2.GaussianBlur(image,(5,5),0)
     #ret,thresh = cv2.threshold(b,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
