@@ -19,6 +19,7 @@ import numpy as np
 from keras.models import model_from_json
 import base64
 from PIL import Image
+import io
 
 # Create your views here.
 
